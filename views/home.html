@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    background-color: #FFEB3B; 
+    margin: 0;
+    padding: 0;
+    background-image: url('https://t3.ftcdn.net/jpg/03/21/48/06/360_F_321480639_mVJIrZLLOH0pEd00Bo2vw1LA3k8IpnjR.jpg');
+    background-repeat: repeat;  
+}
+        .navbar {
+            background-color: #F44336;  
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 4px;  
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 4px;  
+            background: rgba(255, 255, 255, 0.1);  
+        }
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .hero {
+            background-color: #2196F3;  
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+        }
+        .btn {
+            background-color: #4CAF50; 
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;  
+            text-decoration: none;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+        }
+        .btn:hover {
+            background-color: #388E3C;  
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #E0E0E0;  
+            border: 1px solid #BDBDBD;  
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #E0E0E0;  
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+        }
+    </style>
+    <title>Lego Collection</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/" style="font-size: 24px;">Lego Fantasia</a>
+        <div style="display: flex; align-items: center;">
+            <div class="dropdown">
+                <button>Themes &#9660;</button>
+                <div class="dropdown-content">
+                    <a href="/lego/sets?theme=Town">Town</a>
+                    <a href="/lego/sets?theme=Duplo">Duplo</a>
+                    <a href="/lego/sets?theme=Castle">Castle</a>
+                </div>
+            </div>
+            <a href="/about">About</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero">
+            <h1>Embark on a Lego Journey</h1>
+            <p>Dive into a universe made of bricks, dreams, and creativity.</p>
+            <a href="/lego/sets" class="btn">Begin Adventure</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://cdn.rebrickable.com/media/sets/10592-1.jpg" alt="Town Lego Set">
+                <h2>Town Creation</h2>
+                <p>The vibrant essence of town life encapsulated in Lego.</p>
+                <a href="/lego/sets/10592-1" class="btn">Discover</a>
+            </div>
+            <div class="card">
+                <img src="https://cdn.rebrickable.com/media/sets/10584-1.jpg" alt="Duplo Lego Set">
+                <h2>Duplo Dreams</h2>
+                <p>The delightful world of Duplo, molded in Lego.</p>
+                <a href="/lego/sets/10584-1" class="btn">Unveil</a>
+            </div>
+            <div class="card">
+                <img src="https://cdn.rebrickable.com/media/sets/10577-1.jpg" alt="Castle Lego Set">
+                <h2>Castle Chronicles</h2>
+                <p>Revisit the medieval times with this regal Lego masterpiece.</p>
+                <a href="/lego/sets/10577-1" class="btn">Explore</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
