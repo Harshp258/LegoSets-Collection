@@ -8,7 +8,7 @@
 *
 * Name: Harsh Patel Student ID: 114085228 Date: 10/27/2023
 *
-* Published URL: https://viridian-duck-wrap.cyclic.app/
+* Published URL: 
 *
 ********************************************************************************/
 
