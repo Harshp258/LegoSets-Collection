@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFEB3B;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://t3.ftcdn.net/jpg/03/21/48/06/360_F_321480639_mVJIrZLLOH0pEd00Bo2vw1LA3k8IpnjR.jpg');
+            background-repeat: repeat;
+        }
+        .navbar {
+            background-color: #F44336;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .hero {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover {
+            background-color: #388E3C;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #E0E0E0; 
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        table, th, td {
+            border: 1px solid #BDBDBD;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #2196F3; 
+            color: #fff; 
+        }
+        td img {
+            max-width: 80px; 
+            height: auto;
+            border-radius: 4px;
+        }
+        a.btn {
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        a.btn:hover {
+            background-color: #388E3C;
+        }
+
+        a.back-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        a.back-button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+    <title>Lego Sets Collection</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/" style="font-size: 24px;">Lego Fantasia</a>
+        <div style="display: flex; align-items: center;">
+            <div class="dropdown">
+               
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero">
+            <h1>My Collection</h1> <p>Lets Explore this Unreal World</p>
+            <div class="my-4 space-x-4">
+                <a href="/lego/sets?theme=Basic Set" class="btn">Basic Set</a>
+                <a href="/lego/sets?theme=Universal Building Set" class="btn">Universal Building Set</a>
+                <a href="/lego/sets?theme=Duplo" class="btn">Duplo</a>
+                <a href="/lego/sets?theme=Castle" class="btn">Castle</a>
+                <a href="/lego/sets?theme=Disney's Mickey Mouse" class="btn">Disney's Mickey Mouse</a>
+                <a href="/lego/sets?theme=Town" class="btn">Town</a>
+            </div>
+        </div>
+        <table class="min-w-full table-fixed">
+            <thead>
+                <tr>
+                    <th class="w-1/6">Image</th>
+                    <th class="w-2/6">Name</th>
+                    <th class="w-1/6">Theme</th>
+                    <th class="w-1/6">Year</th>
+                    <th class="w-1/6">Num Parts</th>
+                    <th class="w-1/6">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% sets.forEach((set) => { %>
+                    <tr>
+                        <td>
+                            <img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-16 h-16">
+                        </td>
+                        <td><%= set.name %></td>
+                        <td>
+                            <a href="/lego/sets?theme=<%= set.themeName %>" class="btn">
+                                <%= set.themeName %>
+                            </a>
+                        </td>
+                        <td><%= set.year %></td>
+                        <td><%= set.num_parts %></td>
+                        <td>
+                            <a href="/lego/sets/<%= set.set_num %>" class="btn">
+                                Details
+                            </a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+            
+        </table>
+        <a href="#" onclick="history.back(); return false;" class="back-button">Back</a>
+    </div>
+</body>
+
+</html>

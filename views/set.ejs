@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFEB3B;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://t3.ftcdn.net/jpg/03/21/48/06/360_F_321480639_mVJIrZLLOH0pEd00Bo2vw1LA3k8IpnjR.jpg');
+            background-repeat: repeat;
+        }
+        
+        .navbar {
+            background-color: #F44336;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .set-details {
+            background-color: #b8f1b0; 
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+            margin-top: 20px;
+            float: left;
+            margin-left: 1rem;
+        }
+
+        .set-image img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 4px;
+            float:left;
+            margin-right: 1rem;
+        }
+
+        .set-info h3 {
+            font-weight: bold;
+        }
+
+        .quote {
+            margin-top: 20px;
+        }
+
+        .quote blockquote {
+            font-style: italic;
+        }
+
+        .quote p {
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        a.back-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        a.back-button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+    <title>Lego Set Details</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="/">Lego Fantasia</a>
+    </div>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1><%= set.name %></h1> 
+            <p>Year: <%= set.year %></p> 
+        </div>
+
+        <!-- Set Details -->
+        <div class="set-details">
+            <div class="set-image">
+                <img src="<%= set.img_url %>" alt="<%= set.name %> Image"> 
+            </div>
+            <div class="set-info">
+                <h3>Name: <%= set.name %></h3>
+                <p>Year: <%= set.year %></p>
+                <p>Theme: <%= set.themeName %></p> 
+                <p>Num Parts: <%= set.num_parts %></p> 
+            </div>
+            <div class="quote">
+                <h2>Quote of the Day</h2>
+                <blockquote></blockquote>
+                <p></p>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <a href="#" onclick="history.back(); return false;" class="back-button">Back</a>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("https://quotable.io/random")
+                .then((response) => response.json())
+                .then((data) => {
+                    const quoteElement = document.querySelector(".quote blockquote");
+                    const authorElement = document.querySelector(".quote p");
+
+                    if (quoteElement && authorElement) {
+                        quoteElement.textContent = data.content;
+                        authorElement.textContent = `- ${data.author}`;
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

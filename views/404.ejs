@@ -108,19 +108,19 @@
 
 <body>
     <div class="navbar">
-        <a href="/">Lego Fantasia</a>
+        <a href="/" style="font-size: 24px;">Lego Fantasia</a>
         <div style="display: flex; align-items: center;">
-            <div class="dropdown">
-                <button>Themes &#9660;</button>
-                <div class="dropdown-content">
-                    <a href="/lego/sets?theme=Town">Town</a>
-                    <a href="/lego/sets?theme=Duplo">Duplo</a>
-                    <a href="/lego/sets?theme=Castle">Castle</a>
-                </div>
-            </div>
-            <a href="/about">About</a>
+            <ul>
+                <li>
+                    <a class="<%= (page == '/lego/sets') ? 'active' : '' %>" href="/lego/sets">View Collection</a>
+               
+                    <a class="<%= (page == '/about') ? 'active' : '' %>" href="/about">About</a>
+                </li>
+            </ul>
         </div>
     </div>
+    
+    
     <div class="container">
         <div class="hero">
             <h1>Oops! Looks like you're lost.</h1>
