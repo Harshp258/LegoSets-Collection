@@ -13,6 +13,7 @@
             background-image: url('https://t3.ftcdn.net/jpg/03/21/48/06/360_F_321480639_mVJIrZLLOH0pEd00Bo2vw1LA3k8IpnjR.jpg');
             background-repeat: repeat;
         }
+
         .navbar {
             background-color: #F44336;
             color: #fff;
@@ -23,6 +24,7 @@
             border-radius: 4px;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
         }
+
         .navbar a {
             color: #fff;
             text-decoration: none;
@@ -31,9 +33,11 @@
             border-radius: 4px;
             background: rgba(255, 255, 255, 0.1);
         }
+
         .navbar a:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -41,6 +45,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
         .hero {
             background-color: #2196F3;
             color: #fff;
@@ -49,56 +54,92 @@
             border-radius: 8px;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
         }
+
         .btn {
             background-color: #4CAF50;
             color: #fff;
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
         }
+
         .btn:hover {
             background-color: #388E3C;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #E0E0E0; 
+
+        .set-card {
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            width: calc(25% - 20px);
+            transition: transform 0.2s ease-in-out;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
         }
-        table, th, td {
-            border: 1px solid #BDBDBD;
+  
+
+        .set-card:hover {
+        transform: scale(1.05);
         }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #2196F3; 
-            color: #fff; 
-        }
-        td img {
-            max-width: 80px; 
+
+        .set-card img {
+            max-width: 100%;
             height: auto;
             border-radius: 4px;
         }
-        a.btn {
+
+        .set-details {
+            padding: 20px;
+        }
+
+        .set-details h3 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .set-details p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .set-details .theme-button {
             text-decoration: none;
             color: #fff;
             background-color: #4CAF50;
             border: none;
-            padding: 10px 20px;
+            padding: 6px 12px;
             border-radius: 8px;
             text-align: center;
-            display: inline-block;
-            margin: 4px 2px;
+            margin: 4px 0;
             cursor: pointer;
             font-size: 16px;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
         }
-        a.btn:hover {
+
+        .set-details .theme-button:hover {
+            background-color: #388E3C;
+        }
+
+        .set-details .details-button {
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 4px 0;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        .set-details .details-button:hover {
             background-color: #388E3C;
         }
 
@@ -109,13 +150,24 @@
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
-            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
             display: inline-block;
             margin-top: 20px;
         }
 
         a.back-button:hover {
             background-color: #388E3C;
+        }
+
+        /* Add CSS for displaying four cards in a row */
+        .set-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .set-card {
+            width: calc(25% - 20px);
         }
     </style>
     <title>Lego Sets Collection</title>
@@ -126,13 +178,14 @@
         <a href="/" style="font-size: 24px;">Lego Fantasia</a>
         <div style="display: flex; align-items: center;">
             <div class="dropdown">
-               
+                <!-- Dropdown content goes here -->
             </div>
         </div>
     </div>
     <div class="container">
         <div class="hero">
-            <h1>My Collection</h1> <p>Lets Explore this Unreal World</p>
+            <h1>My Collection</h1>
+            <p>Lets Explore this Unreal World</p>
             <div class="my-4 space-x-4">
                 <a href="/lego/sets?theme=Basic Set" class="btn">Basic Set</a>
                 <a href="/lego/sets?theme=Universal Building Set" class="btn">Universal Building Set</a>
@@ -142,41 +195,22 @@
                 <a href="/lego/sets?theme=Town" class="btn">Town</a>
             </div>
         </div>
-        <table class="min-w-full table-fixed">
-            <thead>
-                <tr>
-                    <th class="w-1/6">Image</th>
-                    <th class="w-2/6">Name</th>
-                    <th class="w-1/6">Theme</th>
-                    <th class="w-1/6">Year</th>
-                    <th class="w-1/6">Num Parts</th>
-                    <th class="w-1/6">Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% sets.forEach((set) => { %>
-                    <tr>
-                        <td>
-                            <img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-16 h-16">
-                        </td>
-                        <td><%= set.name %></td>
-                        <td>
-                            <a href="/lego/sets?theme=<%= set.themeName %>" class="btn">
-                                <%= set.themeName %>
-                            </a>
-                        </td>
-                        <td><%= set.year %></td>
-                        <td><%= set.num_parts %></td>
-                        <td>
-                            <a href="/lego/sets/<%= set.set_num %>" class="btn">
-                                Details
-                            </a>
-                        </td>
-                    </tr>
-                <% }); %>
-            </tbody>
-            
-        </table>
+        <div class="set-card-container">
+            <% sets.forEach((set) => { %>
+                <div class="set-card">
+                    <div class="set-image">
+                        <img src="<%= set.img_url %>" alt="<%= set.name %>">
+                    </div>
+                    <div class="set-details">
+                        <h3><%= set.name %></h3>
+                        <p>Year: <%= set.year %></p>
+                        <p>Theme: <a href="/lego/sets?theme=<%= set.themeName %>" class="theme-button"><%= set.themeName %></a></p>
+                        <p>Num Parts: <%= set.num_parts %></p>
+                        <a href="/lego/sets/<%= set.set_num %>" class="details-button">Details</a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
         <a href="#" onclick="history.back(); return false;" class="back-button">Back</a>
     </div>
 </body>
