@@ -101,9 +101,11 @@ app.post('/lego/addSet', async (req, res) => {
         await legoData.addSet(setData);
         res.redirect('/lego/sets');
     } catch (error) {
-        res.status(500).render('500', { message: `Error adding set: ${error}`, page: '/lego/addSet' });
+        console.error('Error adding set:', error);
+        res.status(500).render('500', { message: `Error adding set: ${error.message}`, page: '/lego/addSet' });
     }
 });
+
 
 // Route to edit a specific LEGO set
 app.get('/lego/editSet/:num', async (req, res) => {
