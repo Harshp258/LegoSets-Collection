@@ -178,7 +178,7 @@
         <a href="/" style="font-size: 24px;">Lego Fantasia</a>
         <div style="display: flex; align-items: center;">
             <div class="dropdown">
-                
+                <!-- Your dropdown content here... -->
             </div>
         </div>
     </div>
@@ -204,7 +204,7 @@
                     <div class="set-details">
                         <h3><%= set.name %></h3>
                         <p>Year: <%= set.year %></p>
-                        <p>Theme: <a href="/lego/sets?theme=<%= set.themeName %>" class="theme-button"><%= set.themeName %></a></p>
+                        <p>Theme: <a href="/lego/sets?theme=<%= set.theme %>" class="theme-button"><%= set.theme %></a></p>
                         <p>Num Parts: <%= set.num_parts %></p>
                         <a href="/lego/sets/<%= set.set_num %>" class="details-button">Details</a>
                     </div>

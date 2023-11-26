@@ -90,7 +90,8 @@
             margin-top: 5px;
         }
 
-        a.back-button {
+        
+        .back-button {
             background-color: #4CAF50;
             color: #fff;
             border: none;
@@ -100,9 +101,27 @@
             box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
             display: inline-block;
             margin-top: 20px;
+            cursor: pointer;
         }
 
-        a.back-button:hover {
+        .back-button:hover {
+            background-color: #388E3C;
+        }
+
+    .btn-success {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .btn-success:hover {
             background-color: #388E3C;
         }
     </style>
@@ -117,20 +136,20 @@
     <div class="container">
         <!-- Hero Section -->
         <div class="hero">
-            <h1><%= set.name %></h1> 
-            <p>Year: <%= set.year %></p> 
+            <h1><%= set.name %></h1>
+            <p>Year: <%= set.year %></p>
         </div>
 
         <!-- Set Details -->
         <div class="set-details">
             <div class="set-image">
-                <img src="<%= set.img_url %>" alt="<%= set.name %> Image"> 
+                <img src="<%= set.img_url %>" alt="<%= set.name %> Image">
             </div>
             <div class="set-info">
                 <h3>Name: <%= set.name %></h3>
                 <p>Year: <%= set.year %></p>
-                <p>Theme: <%= set.themeName %></p> 
-                <p>Num Parts: <%= set.num_parts %></p> 
+                <p>Theme: <%= set.themeName %></p>
+                <p>Num Parts: <%= set.num_parts %></p>
             </div>
             <div class="quote">
                 <h2>Quote of the Day</h2>
@@ -138,6 +157,9 @@
                 <p></p>
             </div>
         </div>
+
+        <!-- Edit Button -->
+        <button class="btn-success" onclick="location.href='/lego/editSet/<%= set.set_num %>'">Edit</button>
 
         <!-- Back Button -->
         <a href="#" onclick="history.back(); return false;" class="back-button">Back</a>
@@ -158,4 +180,5 @@
         });
     </script>
 </body>
+
 </html>
