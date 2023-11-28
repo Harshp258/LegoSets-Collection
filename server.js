@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(async (req, res, next) => {
     try {
-        await legoData.initialize(app); // Pass the app object to the initialize function
+        await legoData.initialize(app); 
         next();
     } catch (error) {
         console.error('Initialization error:', error);
