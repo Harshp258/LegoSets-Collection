@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
+     body {
             font-family: Arial, sans-serif;
             background-color: #FFEB3B;
             margin: 0;
@@ -37,6 +37,55 @@
         .navbar a:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+
+        .nav-links ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-right: 10px;
+        }
+
+
+        .navbar.active {
+            width: 400px; 
+        }
+
+        .dropdown-details {
+         position: relative;
+        }
+
+       .dropdown-details .dropdown-container {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ef5b50;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        padding: 10px;
+        }
+
+        .dropdown-details .dropdown-item {
+            margin-right: 10px;
+        }
+
+        .dropdown-details a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .dropdown-details a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
 
         .container {
             max-width: 600px;
@@ -98,10 +147,8 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="/" style="font-size: 24px;">Lego Fantasia</a>
-        <div style="display: flex; align-items: center;"></div>
-    </div>
+
+    <%- include('partials/navbar', {page: '/'}) %>
     <div class="container">
         <div class="hero">
             <h1>Edit Set</h1>

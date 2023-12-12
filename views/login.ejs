@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             background-color: #FFEB3B;
             margin: 0;
@@ -86,6 +86,7 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
+
         .container {
             max-width: 600px;
             margin: 20px auto;
@@ -115,8 +116,7 @@
             color: #333;
         }
 
-        input,
-        select {
+        input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -141,45 +141,49 @@
         button:hover {
             background-color: #388E3C;
         }
+
+        .alert {
+            background-color: #F44336;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .alert span {
+            margin-left: 10px;
+        }
     </style>
-    <title>Add Set - Lego Sets Collection</title>
+    <title>Login - Lego Sets Collection</title>
 </head>
 
 <body>
     <%- include('partials/navbar', {page: '/'}) %>
     <div class="container">
         <div class="hero">
-            <h1>Add Set</h1>
-            <p>Enter the details below to add a new set to the collection.</p>
+            <h1>Login</h1>
+            <p>Enter your credentials to log in.</p>
         </div>
 
-        <form action="/lego/addSet" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <form action="/login" method="post">
+            <label for="userName">User Name:</label>
+            <input type="text" id="userName" name="userName" placeholder="User Name" required>
 
-            <label for="year">Year:</label>
-            <input type="number" id="year" name="year" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
 
-            <label for="num_parts">Number of Parts:</label>
-            <input type="number" id="num_parts" name="num_parts" required>
-
-            <label for="img_url">Image URL:</label>
-            <input type="url" id="img_url" name="img_url" required>
-
-            <label for="theme_id">Theme:</label>
-            <select id="theme_id" name="theme_id" required>
-                <% themes.forEach(theme => { %>
-                <option value="<%= theme.id %>">
-                    <%= theme.name %>
-                </option>
-                <% }) %>
-            </select>
-
-            <label for="set_num">Set Number:</label>
-            <input type="text" id="set_num" name="set_num" required>
-
-            <button type="submit">Submit</button>
+            <button type="submit">Login</button>
         </form>
+
+        <% if (errorMessage) { %>
+            <div class="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span><%= errorMessage %></span>
+            </div>
+        <% } %>
     </div>
 </body>
 

@@ -13,7 +13,7 @@
             background-image: url('https://t3.ftcdn.net/jpg/03/21/48/06/360_F_321480639_mVJIrZLLOH0pEd00Bo2vw1LA3k8IpnjR.jpg');
             background-repeat: repeat;
         }
-        
+
         .navbar {
             background-color: #F44336;
             color: #fff;
@@ -22,9 +22,9 @@
             align-items: center;
             padding: 10px 20px;
             border-radius: 4px;
-            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
         }
-        
+
         .navbar a {
             color: #fff;
             text-decoration: none;
@@ -33,10 +33,59 @@
             border-radius: 4px;
             background: rgba(255, 255, 255, 0.1);
         }
-        
+
         .navbar a:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+
+        .nav-links ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-right: 10px;
+        }
+
+
+        .navbar.active {
+            width: 400px; 
+        }
+
+        .dropdown-details {
+        position: relative;
+        }   
+
+       .dropdown-details .dropdown-container {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ef5b50;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .dropdown-details .dropdown-item {
+            margin-right: 10px;
+        }
+
+        .dropdown-details a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .dropdown-details a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
 
         .container {
             max-width: 1200px;
@@ -129,10 +178,8 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="/">Lego Fantasia</a>
-    </div>
+    <%- include('partials/navbar', {page: '/'}) %>
+    
     <div class="container">
         <!-- Hero Section -->
         <div class="hero">
@@ -157,10 +204,10 @@
                 <p></p>
             </div>
         </div>
-
-        <!-- Edit Button -->
-        <button class="btn-success" onclick="location.href='/lego/editSet/<%= set.set_num %>'">Edit</button>
-
+         <!-- Edit Button -->
+        <% if(session.user){ %>
+            <button class="btn-success" onclick="location.href='/lego/editSet/<%= set.set_num %>'">Edit</button>
+        <% } %>
         <!-- Back Button -->
         <a href="#" onclick="history.back(); return false;" class="back-button">Back</a>
     </div>

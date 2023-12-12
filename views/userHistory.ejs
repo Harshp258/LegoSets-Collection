@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFEB3B;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://t3.ftcdn.net/jpg/03/21/48/06/360_F_321480639_mVJIrZLLOH0pEd00Bo2vw1LA3k8IpnjR.jpg');
+            background-repeat: repeat;
+        }
+
+        .navbar {
+            background-color: #F44336;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-right: 10px;
+        }
+
+
+        .navbar.active {
+            width: 400px; 
+        }
+
+        .dropdown-details {
+            position: relative;
+        }
+
+        .dropdown-details ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #F44336;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            padding: 10px;
+            list-style-type: none;
+            margin: 0;
+            display: flex; 
+            flex-direction: row;
+        }
+
+        .dropdown-details a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            margin-right: 10px; 
+        }
+
+        .dropdown-details a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+    </style>
+    <title>User History - Lego Sets Collection</title>
+</head>
+
+<body>
+    <%- include('partials/navbar', {page: '/'}) %>
+    <div class="container">
+        <div class="hero">
+            <h1>User History</h1>
+            <p>Welcome back, <%= session.user.userName %>!</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Login Date/Time</th>
+                    <th>Client Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% session.user.loginHistory.forEach(entry => { %>
+                    <tr>
+                        <td><%= entry.dateTime %></td>
+                        <td><%= entry.userAgent %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
